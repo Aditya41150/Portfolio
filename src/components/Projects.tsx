@@ -18,15 +18,17 @@ export default function Projects() {
             Projects
           </h2>
 
+          <p className="text-neutral-400 mt-3 max-w-xl">
+            A selection of projects showcasing my focus on performance,
+            scalability, and clean architecture.
+          </p>
+
           <div className="grid md:grid-cols-2 gap-6 mt-12">
             {projects.map((project) => (
               <motion.div
                 key={project.title}
                 whileHover={{ y: -6 }}
-                onClick={() => {
-                  console.log("PROJECT CLICKED:", project.title)
-                  setSelected(project)
-                }}
+                onClick={() => setSelected(project)}
                 className="cursor-pointer rounded-xl border border-neutral-800
                            p-6 bg-neutral-900/40 hover:border-neutral-600 transition"
               >
@@ -38,28 +40,20 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                <div className="flex justify-between items-center mt-4">
-                  <div className="flex gap-2 flex-wrap">
-                    {project.tech.slice(0, 3).map((tech: string) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2 py-1 rounded
-                                   bg-neutral-800 text-neutral-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="text-neutral-400 hover:text-white"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
+                {/* GitHub icon only */}
+                <div className="flex justify-end mt-4">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-neutral-400 hover:text-white transition"
+                      aria-label="View GitHub repository"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -67,6 +61,7 @@ export default function Projects() {
         </div>
       </section>
 
+      {/* Project Modal */}
       {selected && (
         <ProjectModal
           project={selected}
