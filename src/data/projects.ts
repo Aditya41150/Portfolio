@@ -1,5 +1,18 @@
 export const projects = [
   {
+    title: "Focus Tracker",
+    description: "A high-performance desktop productivity tool that monitors active window usage and categorizes focus time in real-time.",
+    details: [
+      "Built with a Rust-based window tracking engine and a React frontend",
+      "Features a Rize-inspired dashboard with 24-hour vertical timeline",
+      "Local SQLite persistence for privacy-first data logging",
+      "Real-time active window monitoring and categorization",
+    ],
+    tech: ["Tauri v2", "Rust", "React", "TypeScript", "Tailwind CSS", "SQLite"],
+    github: "https://github.com/Aditya41150/Focus-Tracker",
+    live: null,
+  },
+  {
     title: "FareFinder – Smart Cab & Bike Fare Comparison App",
     description:
       "Mobile app that compares cab and bike fares across services with real-time location input.",
