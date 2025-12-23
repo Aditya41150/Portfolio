@@ -91,4 +91,29 @@ export const projects = [
     github: "https://github.com/Aditya41150/ShopEase",
     live: null,
   },
+  {
+    title: "Taskify – Advanced Task Management App",
+    description:
+      "A productivity-focused mobile app featuring real-time sync, clean architecture, and intuitive gesture-based task control.",
+    details: [
+      "Architected using Clean Architecture principles separating Domain, Data, and Presentation layers",
+      "Implemented Riverpod for robust, reactive state management across the application",
+      "Integrated Firebase Firestore for real-time data synchronization and persistent storage",
+      "Developed advanced 'Swipe-to-Action' gestures: Swipe Right to Edit and Swipe Left to Delete",
+      "Designed a dynamic Bottom Sheet interface for context-aware task creation and editing",
+      "Built a custom priority-based categorization system with real-time UI updates",
+    ],
+    tech: [
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "Firebase Firestore",
+      "Cloud Firestore",
+      "Clean Architecture",
+      "Advanced Gestures",
+      "MVC/Feature-first Design",
+    ],
+    github: "https://github.com/Aditya41150/Task-Management-App",
+    live: null,
+  },
 ]
