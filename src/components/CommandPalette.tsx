@@ -11,7 +11,7 @@ const GitHubStreak = () => {
   return (
     <div className="mx-2 mb-4 p-4 bg-neutral-950 border border-neutral-800 rounded-xl space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">GitHub Activity</span>
+        <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest"> </span>
         <span className="flex h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
       </div>
       <img 
