@@ -1,4 +1,4 @@
-import { Github, X } from "lucide-react"
+import { Github, X, ExternalLink } from "lucide-react"
 
 type ProjectModalProps = {
   project: any
@@ -56,19 +56,35 @@ export default function ProjectModal({
           ))}
         </div>
 
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-md
-                       border border-neutral-700 text-neutral-300
-                       hover:text-white hover:border-neutral-500 transition"
-          >
-            <Github className="w-4 h-4" />
-            View on GitHub
-          </a>
-        )}
+        <div className="flex gap-3 mt-6">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md
+                         border border-neutral-700 text-neutral-300
+                         hover:text-white hover:border-neutral-500 transition"
+            >
+              <Github className="w-4 h-4" />
+              View on GitHub
+            </a>
+          )}
+
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md
+                         border border-neutral-700 text-neutral-300
+                         hover:text-white hover:border-neutral-500 transition"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View Live
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

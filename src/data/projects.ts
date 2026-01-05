@@ -36,7 +36,7 @@ export const projects = [
       "MVC Architecture",
     ],
     github: "https://github.com/Aditya41150/Fare-Finder-Cabs-and-Bikes",
-    live: null,
+    live: "https://farefinderapp.netlify.app/",
   },
 
   {
