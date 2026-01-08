@@ -1,6 +1,7 @@
 import { Command } from "cmdk";
 import { useEffect, useState } from "react";
 import { Terminal, Github, Briefcase, Mail, Code2, Search } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
 
 interface CommandPaletteProps {
   openContact: () => void;
@@ -14,8 +15,8 @@ const GitHubStreak = () => {
         <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest"> </span>
         <span className="flex h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
       </div>
-      <img 
-        src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=transparent&title_color=ffffff&text_color=a3a3a3&icon_color=3b82f6&hide_border=true&bg_color=00000000`} 
+      <img
+        src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=transparent&title_color=ffffff&text_color=a3a3a3&icon_color=3b82f6&hide_border=true&bg_color=00000000`}
         alt="GitHub Stats"
         className="w-full h-auto opacity-90"
       />
@@ -51,7 +52,7 @@ export default function CommandPalette({ openContact }: CommandPaletteProps) {
 
   return (
     <>
-      <button 
+      <button
         onClick={() => setOpen(true)}
         className="fixed bottom-8 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 px-4 py-2 rounded-full border border-neutral-800 bg-neutral-950/80 backdrop-blur-md text-neutral-400 z-40 hover:border-neutral-600 transition-all group"
       >
@@ -96,6 +97,9 @@ export default function CommandPalette({ openContact }: CommandPaletteProps) {
             <Command.Group heading="Connect" className="px-3 pb-2 mt-2 text-[10px] font-bold text-neutral-600 uppercase tracking-widest">
               <Command.Item onSelect={() => window.open("https://github.com/Aditya41150", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <Github size={16} className="text-neutral-400" /> GitHub Profile
+              </Command.Item>
+              <Command.Item onSelect={() => window.open("https://leetcode.com/u/Aditya_57/", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
+                <SiLeetcode size={16} className="text-neutral-400" /> LeetCode Profile
               </Command.Item>
               <Command.Item onSelect={handleContactSelect} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <Mail size={16} className="text-neutral-400" /> Send Message
