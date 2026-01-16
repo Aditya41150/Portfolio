@@ -1,7 +1,8 @@
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useScroll } from "framer-motion"
 import { Github, Linkedin, Menu, X, BookOpen } from "lucide-react"
 import { SiLeetcode } from "react-icons/si"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import ThemeToggle from "./ThemeToggle"
 
 type NavbarProps = {
   onContactClick: () => void;
@@ -9,6 +10,14 @@ type NavbarProps = {
 
 const Navbar = ({ onContactClick }: NavbarProps) => {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { scrollY } = useScroll()
+
+  useEffect(() => {
+    return scrollY.on("change", (latest) => {
+      setScrolled(latest > 50)
+    })
+  }, [scrollY])
 
   // Helper to handle contact click and close mobile menu
   const handleContactClick = () => {
@@ -21,12 +30,15 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-md border-b border-neutral-800"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+          ? "bg-neutral-950/90 backdrop-blur-lg border-b border-neutral-800 shadow-lg"
+          : "bg-neutral-950/70 backdrop-blur-md border-b border-neutral-800/50"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <span className="text-lg font-semibold tracking-tight text-white">
+        <a href="#" className="text-lg font-semibold tracking-tight text-white hover:text-blue-400 transition">
           Aditya.dev
-        </span>
+        </a>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-6">
@@ -40,18 +52,28 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
             </span>
           </div>
 
-          <a href="#projects" className="text-sm text-neutral-300 hover:text-white transition cursor-pointer">
+          <a href="#about" className="text-sm text-neutral-300 hover:text-blue-400 transition cursor-pointer">
+            About
+          </a>
+          <a href="#projects" className="text-sm text-neutral-300 hover:text-blue-400 transition cursor-pointer">
             Projects
           </a>
-          <button onClick={onContactClick} className="text-sm text-neutral-300 hover:text-white transition cursor-pointer">
+          <a href="#experience" className="text-sm text-neutral-300 hover:text-blue-400 transition cursor-pointer">
+            Experience
+          </a>
+          <a href="#skills" className="text-sm text-neutral-300 hover:text-blue-400 transition cursor-pointer">
+            Skills
+          </a>
+          <button onClick={onContactClick} className="text-sm text-neutral-300 hover:text-blue-400 transition cursor-pointer">
             Contact
           </button>
 
-          <div className="flex items-center gap-4 border-l border-neutral-800 pl-6">
-            <a href="https://github.com/Aditya41150" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5 text-neutral-400 hover:text-white" /></a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5 text-neutral-400 hover:text-white" /></a>
-            <a href="https://leetcode.com/u/Aditya_57/" target="_blank" rel="noopener noreferrer"><SiLeetcode className="w-5 h-5 text-neutral-400 hover:text-white" /></a>
-            <a href="https://medium.com/@yourusername" target="_blank" rel="noopener noreferrer"><BookOpen className="w-5 h-5 text-neutral-400 hover:text-white" /></a>
+          <div className="flex items-center gap-3 border-l border-neutral-800 pl-6">
+            <ThemeToggle />
+            <a href="https://github.com/Aditya41150" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
+            <a href="https://leetcode.com/u/Aditya_57/" target="_blank" rel="noopener noreferrer"><SiLeetcode className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
+            <a href="https://medium.com/@yourusername" target="_blank" rel="noopener noreferrer"><BookOpen className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
           </div>
         </div>
 
@@ -88,8 +110,17 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
               </div>
 
               <div className="flex flex-col gap-8 text-2xl text-white">
+                <a onClick={() => setOpen(false)} href="#about" className="cursor-pointer hover:text-blue-400 transition">
+                  About
+                </a>
                 <a onClick={() => setOpen(false)} href="#projects" className="cursor-pointer hover:text-blue-400 transition">
                   Projects
+                </a>
+                <a onClick={() => setOpen(false)} href="#experience" className="cursor-pointer hover:text-blue-400 transition">
+                  Experience
+                </a>
+                <a onClick={() => setOpen(false)} href="#skills" className="cursor-pointer hover:text-blue-400 transition">
+                  Skills
                 </a>
 
                 <button

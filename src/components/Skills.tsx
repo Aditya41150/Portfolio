@@ -1,103 +1,163 @@
 import { motion } from "framer-motion"
 import {
   SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
   SiCplusplus,
   SiPython,
-  SiKotlin,
-  SiSolidity,
   SiDart,
   SiC,
+  SiRust,
   SiNodedotjs,
   SiExpress,
-  SiMysql,
-  SiHtml5,
-  SiCss3,
   SiFlutter,
   SiFirebase,
+  SiMysql,
+  SiPostgresql,
+  SiMongodb,
+  SiTailwindcss,
   SiGit,
-  SiGithub,
-  SiAndroidstudio,
-  SiIntellijidea,
+  SiDocker,
+  SiAmazon,
+  SiGooglecloud,
 } from "react-icons/si"
 
-const skillGroups = [
+type Skill = {
+  name: string
+  icon: any
+  level: number
+}
+
+const skillCategories = [
   {
-    title: "Languages",
+    title: "Frontend Development",
+    color: "blue",
     skills: [
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "C++", icon: SiCplusplus },
-      { name: "Python", icon: SiPython },
-      { name: "Kotlin", icon: SiKotlin },
-      { name: "Solidity", icon: SiSolidity },
-      { name: "Dart", icon: SiDart },
-      { name: "C", icon: SiC },
+      { name: "React", icon: SiReact, level: 90 },
+      { name: "Next.js", icon: SiNextdotjs, level: 85 },
+      { name: "TypeScript", icon: SiTypescript, level: 88 },
+      { name: "JavaScript", icon: SiJavascript, level: 92 },
+      { name: "Tailwind CSS", icon: SiTailwindcss, level: 90 },
     ],
   },
   {
-    title: "Frameworks & Technologies",
+    title: "Mobile Development",
+    color: "cyan",
     skills: [
-      { name: "Node.js", icon: SiNodedotjs },
-      { name: "Express.js", icon: SiExpress },
-      { name: "MySQL", icon: SiMysql },
-      { name: "HTML", icon: SiHtml5 },
-      { name: "CSS", icon: SiCss3 },
-      { name: "Flutter", icon: SiFlutter },
-      { name: "Firebase", icon: SiFirebase },
+      { name: "Flutter", icon: SiFlutter, level: 90 },
+      { name: "Dart", icon: SiDart, level: 88 },
+      { name: "Firebase", icon: SiFirebase, level: 85 },
     ],
   },
- {
-  title: "Developer Tools",
-  skills: [
-    { name: "Git", icon: SiGit },
-    { name: "GitHub", icon: SiGithub },
-    { name: "Android Studio", icon: SiAndroidstudio },
-    { name: "IntelliJ IDEA", icon: SiIntellijidea },
-  ],
-},
+  {
+    title: "Backend & Cloud",
+    color: "purple",
+    skills: [
+      { name: "Node.js", icon: SiNodedotjs, level: 85 },
+      { name: "Express.js", icon: SiExpress, level: 82 },
+      { name: "AWS", icon: SiAmazon, level: 75 },
+      { name: "Google Cloud", icon: SiGooglecloud, level: 70 },
+    ],
+  },
+  {
+    title: "Systems & IoT",
+    color: "green",
+    skills: [
+      { name: "C++", icon: SiCplusplus, level: 85 },
+      { name: "C", icon: SiC, level: 82 },
+      { name: "Rust", icon: SiRust, level: 75 },
+      { name: "Python", icon: SiPython, level: 80 },
+    ],
+  },
+  {
+    title: "Databases",
+    color: "orange",
+    skills: [
+      { name: "MySQL", icon: SiMysql, level: 85 },
+      { name: "PostgreSQL", icon: SiPostgresql, level: 80 },
+      { name: "MongoDB", icon: SiMongodb, level: 78 },
+    ],
+  },
+  {
+    title: "DevOps & Tools",
+    color: "red",
+    skills: [
+      { name: "Git", icon: SiGit, level: 90 },
+      { name: "Docker", icon: SiDocker, level: 75 },
+    ],
+  },
 ]
+
+const getColorClasses = (color: string) => {
+  const colors: Record<string, { border: string; bg: string; text: string }> = {
+    blue: { border: "border-blue-500/50", bg: "bg-blue-500", text: "text-blue-400" },
+    cyan: { border: "border-cyan-500/50", bg: "bg-cyan-500", text: "text-cyan-400" },
+    purple: { border: "border-purple-500/50", bg: "bg-purple-500", text: "text-purple-400" },
+    green: { border: "border-green-500/50", bg: "bg-green-500", text: "text-green-400" },
+    orange: { border: "border-orange-500/50", bg: "bg-orange-500", text: "text-orange-400" },
+    red: { border: "border-red-500/50", bg: "bg-red-500", text: "text-red-400" },
+  }
+  return colors[color] || colors.blue
+}
 
 export default function Skills() {
   return (
-    <section className="py-24 px-6">
+    <section id="skills" className="py-24 px-6 bg-neutral-900/30 light:bg-neutral-50">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-semibold tracking-tight">
-          Skills
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-100 light:text-neutral-900">
+            Skills & Technologies
+          </h2>
 
-        <p className="text-neutral-400 mt-3 max-w-xl">
-          Technologies and tools I use to build reliable,
-          scalable, and maintainable software.
-        </p>
+          <p className="text-neutral-400 light:text-neutral-600 mt-3 max-w-2xl text-lg">
+            A comprehensive toolkit for building <span className="text-blue-400 light:text-blue-600 font-semibold">modern</span>,{" "}
+            <span className="text-blue-400 light:text-blue-600 font-semibold">scalable</span>, and{" "}
+            <span className="text-blue-400 light:text-blue-600 font-semibold">high-performance</span> applications.
+          </p>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          {skillGroups.map((group, index) => (
-            <motion.div
-              key={group.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-6 hover:border-neutral-600 transition"
-            >
-              <h3 className="text-lg font-medium mb-4">
-                {group.title}
-              </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            {skillCategories.map((category, categoryIndex) => {
+              const colorClasses = getColorClasses(category.color)
+              return (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: categoryIndex * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`rounded-xl border border-neutral-700/50 light:border-neutral-200 hover:${colorClasses.border} bg-neutral-800/50 light:bg-white p-6 transition-all group shadow-sm light:shadow-md`}
+                >
+                  <h3 className={`text-lg font-semibold mb-6 ${colorClasses.text}`}>
+                    {category.title}
+                  </h3>
 
-              <div className="space-y-3">
-                {group.skills.map(({ name, icon: Icon }) => (
-                  <div
-                    key={name}
-                    className="flex items-center gap-3 text-sm text-neutral-300
-                               hover:text-white transition"
-                  >
-                    <Icon className="w-5 h-5" />
-                    <span>{name}</span>
+                  <div className="space-y-4">
+                    {category.skills.map((skill: Skill, skillIndex: number) => (
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                        viewport={{ once: true }}
+                        className="flex items-center gap-3 p-2 rounded-lg hover:bg-neutral-700/30 light:hover:bg-neutral-100 transition-colors"
+                      >
+                        <skill.icon className={`w-5 h-5 ${colorClasses.text}`} />
+                        <span className="text-sm font-medium text-neutral-200 light:text-neutral-800">
+                          {skill.name}
+                        </span>
+                      </motion.div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -25,16 +25,22 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section className="py-24 px-6">
+    <section id="experience" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-semibold tracking-tight">
-          Experience
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+            Experience
+          </h2>
 
-        <p className="text-neutral-400 mt-3 max-w-xl">
-          Hands-on experience through internships and open-source
-          contributions focused on real-world impact.
-        </p>
+          <p className="text-neutral-400 mt-3 max-w-2xl text-lg">
+            Hands-on experience through internships and open-source
+            contributions focused on real-world impact.
+          </p>
+        </motion.div>
 
         <div className="mt-16 relative border-l border-neutral-800">
           {experiences.map((exp, index) => (

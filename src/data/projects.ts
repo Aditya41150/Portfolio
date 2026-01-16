@@ -116,4 +116,18 @@ export const projects = [
     github: "https://github.com/Aditya41150/Task-Management-App",
     live: null,
   },
-]
+  {
+    title: "Cosmic - Explore the Solar System",
+    description: "A stunning Flutter application that lets you explore planets in our solar system with beautiful animations, immersive UI, and Firebase authentication.",
+    details: [
+      "Implemented chat‑based UI with Flutter and Dart",
+      "Integrated OpenAI GPT for natural language understanding",
+      "Used Firebase for authentication, Firestore for real‑time data sync",
+      "Added voice command support via speech‑to‑text APIs",
+      "Implemented push notifications for reminders and alerts"
+    ],
+    tech: ["Flutter", "Dart", "OpenAI API", "Firebase", "Firestore", "Speech‑to‑Text", "Push Notifications"],
+    github: "https://github.com/Aditya41150/Cosmic-App",
+    live: null
+  }
+];
