@@ -13,7 +13,6 @@ function App() {
 
   return (
     <main className="bg-neutral-950 text-neutral-100 relative min-h-screen">
-      {/* Passing the state setter to the CommandPalette */}
       <CommandPalette openContact={() => setIsContactOpen(true)} />
       
       <Navbar onContactClick={() => setIsContactOpen(true)} />
