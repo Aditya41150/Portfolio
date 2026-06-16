@@ -1,6 +1,6 @@
 import { Command } from "cmdk";
 import { useEffect, useState } from "react";
-import { Terminal, Github, Briefcase, Mail, Code2, Search } from "lucide-react";
+import { Terminal, Github, Briefcase, Mail, Code2, Search, Linkedin } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
 
 interface CommandPaletteProps {
@@ -97,6 +97,12 @@ export default function CommandPalette({ openContact }: CommandPaletteProps) {
             <Command.Group heading="Connect" className="px-3 pb-2 mt-2 text-[10px] font-bold text-neutral-600 uppercase tracking-widest">
               <Command.Item onSelect={() => window.open("https://github.com/Aditya41150", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <Github size={16} className="text-neutral-400" /> GitHub Profile
+              </Command.Item>
+              <Command.Item onSelect={() => window.open("https://www.linkedin.com/in/aditya41150/", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
+                <Linkedin size={16} className="text-neutral-400" /> LinkedIn Profile
+              </Command.Item>
+              <Command.Item onSelect={() => window.location.href = "mailto:singhadi437@gmail.com"} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
+                <Mail size={16} className="text-neutral-400" /> Email Me
               </Command.Item>
               <Command.Item onSelect={() => window.open("https://leetcode.com/u/Aditya_57/", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <SiLeetcode size={16} className="text-neutral-400" /> LeetCode Profile

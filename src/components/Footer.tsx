@@ -14,10 +14,10 @@ export default function Footer() {
 
     const socialLinks = [
         { icon: Github, href: "https://github.com/Aditya41150", label: "GitHub" },
-        { icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
+        { icon: Linkedin, href: "https://www.linkedin.com/in/aditya41150/", label: "LinkedIn" },
         { icon: SiLeetcode, href: "https://leetcode.com/u/Aditya_57/", label: "LeetCode" },
-        { icon: BookOpen, href: "https://medium.com/@yourusername", label: "Medium" },
-        { icon: Mail, href: "mailto:your.email@example.com", label: "Email" },
+        { icon: BookOpen, href: "https://medium.com/@singhadi437", label: "Medium" },
+        { icon: Mail, href: "mailto:singhadi437@gmail.com", label: "Email" },
     ]
 
     return (

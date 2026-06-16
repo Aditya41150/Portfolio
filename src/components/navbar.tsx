@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, useScroll } from "framer-motion"
-import { Github, Linkedin, Menu, X, BookOpen } from "lucide-react"
+import { Github, Linkedin, Menu, X, BookOpen, Mail } from "lucide-react"
 import { SiLeetcode } from "react-icons/si"
 import { useState, useEffect } from "react"
 import ThemeToggle from "./ThemeToggle"
@@ -71,9 +71,10 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
           <div className="flex items-center gap-3 border-l border-neutral-800 pl-6">
             <ThemeToggle />
             <a href="https://github.com/Aditya41150" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
+            <a href="https://www.linkedin.com/in/aditya41150/" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
+            <a href="mailto:singhadi437@gmail.com"><Mail className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
             <a href="https://leetcode.com/u/Aditya_57/" target="_blank" rel="noopener noreferrer"><SiLeetcode className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
-            <a href="https://medium.com/@yourusername" target="_blank" rel="noopener noreferrer"><BookOpen className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
+            <a href="https://medium.com/@singhadi437" target="_blank" rel="noopener noreferrer"><BookOpen className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
           </div>
         </div>
 
@@ -134,13 +135,16 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
                   <a href="https://github.com/Aditya41150" target="_blank" rel="noopener noreferrer">
                     <Github className="w-8 h-8" />
                   </a>
-                  <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/aditya41150/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-8 h-8" />
+                  </a>
+                  <a href="mailto:singhadi437@gmail.com">
+                    <Mail className="w-8 h-8" />
                   </a>
                   <a href="https://leetcode.com/u/Aditya_57/" target="_blank" rel="noopener noreferrer">
                     <SiLeetcode className="w-8 h-8" />
                   </a>
-                  <a href="https://medium.com/@yourusername" target="_blank" rel="noopener noreferrer">
+                  <a href="https://medium.com/@singhadi437" target="_blank" rel="noopener noreferrer">
                     <BookOpen className="w-8 h-8" />
                   </a>
                 </div>
