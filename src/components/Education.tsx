@@ -6,9 +6,9 @@ const education = [
         degree: "Bachelor of Technology in Computer Science",
         institution: "Chandigarh University",
         duration: "2022 - 2026",
-        gpa: "8.5 CGPA",
+        // gpa: "8.5 CGPA",
         highlights: [
-            "Relevant Coursework: Data Structures, Algorithms, Web Development, Mobile Development",
+            "Relevant Coursework: Data Structures, Algorithms, Web Development, Databases, Operating Systems",
             "Active member of coding clubs and technical societies"
         ]
     }
@@ -47,7 +47,7 @@ export default function Education() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-100 light:text-neutral-900">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-neutral-100 light:text-neutral-900">
                         Education & Achievements
                     </h2>
 
@@ -95,7 +95,7 @@ export default function Education() {
                             <h3 className="text-2xl font-semibold text-neutral-100 light:text-neutral-900">Achievements</h3>
                         </div>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {achievements.map((achievement, index) => (
                                 <motion.div
                                     key={index}
