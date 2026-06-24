@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { X, Send, Loader2 } from 'lucide-react';
 
-console.log("My Keys:", import.meta.env);
 
 interface ContactProps {
   onClose: () => void;
@@ -35,8 +34,8 @@ export default function Contact({ onClose }: ContactProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-      <div className="bg-neutral-900 border border-neutral-800 w-full max-w-md rounded-2xl shadow-2xl relative overflow-hidden">
+    <div className="fixed inset-0 z-[999] flex items-center justify-center px-4 py-8 bg-black/80 backdrop-blur-md">
+      <div className="bg-neutral-900 border border-neutral-800 w-full max-w-md sm:max-w-lg rounded-2xl shadow-2xl relative overflow-hidden max-h-[90vh] overflow-y-auto">
         
         {/* Close Button */}
         <button 
@@ -46,11 +45,11 @@ export default function Contact({ onClose }: ContactProps) {
           <X size={24} />
         </button>
 
-        <div className="p-8">
-          <h2 className="text-2xl font-bold text-white mb-2">Hire Me</h2>
-          <p className="text-neutral-400 mb-6 text-sm">Fill out the form below and I'll get back to you shortly.</p>
+        <div className="p-6 sm:p-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Hire Me</h2>
+          <p className="text-neutral-400 mb-6 text-xs sm:text-sm">Fill out the form below and I'll get back to you shortly.</p>
 
-          <form ref={form} onSubmit={sendEmail} className="space-y-4">
+          <form ref={form} onSubmit={sendEmail} className="space-y-3 sm:space-y-4">
             <div>
               <input 
                 name="user_name" 
