@@ -10,7 +10,7 @@ const highlights = [
     {
         icon: Rocket,
         title: "Mobile Development",
-        description: "Cross-platform apps with Flutter & React Native"
+        description: "Cross-platform apps with Flutter "
     },
     {
         icon: Zap,
@@ -34,11 +34,11 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
                         About Me
                     </h2>
 
-                    <div className="mt-12 grid md:grid-cols-2 gap-12 items-start">
+                    <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
                         {/* Bio Section */}
                         <div className="space-y-6">
                             <p className="text-neutral-300 leading-relaxed text-lg">
@@ -46,13 +46,13 @@ export default function About() {
                                 expertise in building high-performance web and mobile applications. I specialize in
                                 <span className="text-blue-400 font-semibold"> React</span>,
                                 <span className="text-blue-400 font-semibold"> Flutter</span>, and
-                                <span className="text-blue-400 font-semibold"> Cloud technologies</span>.
+                                
                             </p>
 
                             <p className="text-neutral-300 leading-relaxed text-lg">
                                 With hands-on experience in <span className="text-blue-400 font-semibold">blockchain development</span>
-                                
-                                <span className="text-blue-400 font-semibold"> and open-source contributions</span>, I bring a
+                               
+                                <span className="text-blue-400 font-semibold"> and  open-source contributions</span>, I bring a
                                 unique blend of technical skills and problem-solving abilities to every project.
                             </p>
 
@@ -76,7 +76,7 @@ export default function About() {
                         </div>
 
                         {/* Highlights Grid */}
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {highlights.map((item, index) => (
                                 <motion.div
                                     key={item.title}

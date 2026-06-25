@@ -19,7 +19,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
               Featured Projects
             </h2>
 
@@ -31,7 +31,7 @@ export default function Projects() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}

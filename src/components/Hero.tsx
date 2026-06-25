@@ -20,7 +20,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
         >
           Hi, I'm{" "}
           <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
@@ -32,9 +32,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mt-6 text-2xl md:text-3xl font-semibold text-neutral-300"
+          className="mt-6 text-xl sm:text-2xl md:text-3xl font-semibold text-neutral-300"
         >
-          Full-Stack Developer | App Developer
+          Full-Stack Developer | App Developer 
         </motion.h2>
 
         <motion.p

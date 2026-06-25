@@ -40,7 +40,7 @@ export default function ProjectModal({
 
         <ul className="mt-4 space-y-2 text-sm text-neutral-300">
           {project.details.map((item: string, i: number) => (
-            <li key={i}>• {item}</li>
+            <li key={i}>•{item}</li>
           ))}
         </ul>
 

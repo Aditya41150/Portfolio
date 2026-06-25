@@ -91,7 +91,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-100 light:text-neutral-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-neutral-100 light:text-neutral-900">
             Skills & Technologies
           </h2>
 
@@ -101,7 +101,7 @@ export default function Skills() {
             <span className="text-blue-400 light:text-blue-600 font-semibold">high-performance</span> applications.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {skillCategories.map((category, categoryIndex) => {
               const colorClasses = getColorClasses(category.color)
               return (
