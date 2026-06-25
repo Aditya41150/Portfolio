@@ -2,7 +2,6 @@ import { motion, AnimatePresence, useScroll } from "framer-motion"
 import { Github, Linkedin, Menu, X, BookOpen, Mail } from "lucide-react"
 import { SiLeetcode } from "react-icons/si"
 import { useState, useEffect } from "react"
-import ThemeToggle from "./ThemeToggle"
 
 type NavbarProps = {
   onContactClick: () => void;
@@ -25,14 +24,26 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-          ? "bg-neutral-950/90 backdrop-blur-lg border-b border-neutral-800 shadow-lg"
-          : "bg-neutral-950/70 backdrop-blur-md border-b border-neutral-800/50"
+        ? "bg-neutral-950/90 backdrop-blur-lg border-b border-neutral-800 shadow-lg"
+        : "bg-neutral-950/70 backdrop-blur-md border-b border-neutral-800/50"
         }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -69,7 +80,6 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
           </button>
 
           <div className="flex items-center gap-3 border-l border-neutral-800 pl-6">
-            <ThemeToggle />
             <a href="https://github.com/Aditya41150" target="_blank" rel="noopener noreferrer"><Github className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
             <a href="https://www.linkedin.com/in/aditya41150/" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
             <a href="mailto:singhadi437@gmail.com"><Mail className="w-5 h-5 text-neutral-400 hover:text-white transition" /></a>
@@ -94,14 +104,14 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-neutral-950/95 backdrop-blur z-50"
+            className="fixed inset-0 bg-neutral-950 z-[9999]"
           >
             <motion.div
               initial={{ y: -20 }}
               animate={{ y: 0 }}
               exit={{ y: -20 }}
               transition={{ duration: 0.3 }}
-              className="p-6"
+              className="h-screen bg-neutral-950 p-6 overflow-y-auto"
             >
               <div className="flex justify-between items-center mb-12">
                 <span className="text-lg font-semibold text-white">Menu</span>

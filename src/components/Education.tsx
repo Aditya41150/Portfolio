@@ -6,9 +6,9 @@ const education = [
         degree: "Bachelor of Technology in Computer Science",
         institution: "Chandigarh University",
         duration: "2022 - 2026",
-        gpa: "8.5 CGPA",
+        // gpa: "8.5 CGPA",
         highlights: [
-            "Relevant Coursework: Data Structures, Algorithms, Web Development, Mobile Development",
+            "Relevant Coursework: Data Structures, Algorithms, Web Development, Mobile Developmen, DBSMS, Operating System",
             "Active member of coding clubs and technical societies"
         ]
     }

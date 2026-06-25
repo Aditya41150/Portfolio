@@ -56,18 +56,7 @@ const skillCategories = [
     skills: [
       { name: "Node.js", icon: SiNodedotjs, level: 85 },
       { name: "Express.js", icon: SiExpress, level: 82 },
-      { name: "AWS", icon: SiAmazon, level: 75 },
       { name: "Google Cloud", icon: SiGooglecloud, level: 70 },
-    ],
-  },
-  {
-    title: "Systems & IoT",
-    color: "green",
-    skills: [
-      { name: "C++", icon: SiCplusplus, level: 85 },
-      { name: "C", icon: SiC, level: 82 },
-      { name: "Rust", icon: SiRust, level: 75 },
-      { name: "Python", icon: SiPython, level: 80 },
     ],
   },
   {
@@ -77,14 +66,6 @@ const skillCategories = [
       { name: "MySQL", icon: SiMysql, level: 85 },
       { name: "PostgreSQL", icon: SiPostgresql, level: 80 },
       { name: "MongoDB", icon: SiMongodb, level: 78 },
-    ],
-  },
-  {
-    title: "DevOps & Tools",
-    color: "red",
-    skills: [
-      { name: "Git", icon: SiGit, level: 90 },
-      { name: "Docker", icon: SiDocker, level: 75 },
     ],
   },
 ]

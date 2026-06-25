@@ -50,9 +50,9 @@ export default function About() {
                             </p>
 
                             <p className="text-neutral-300 leading-relaxed text-lg">
-                                With hands-on experience in <span className="text-blue-400 font-semibold">blockchain development</span>,
-                                <span className="text-blue-400 font-semibold"> IoT systems</span>, and
-                                <span className="text-blue-400 font-semibold"> open-source contributions</span>, I bring a
+                                With hands-on experience in <span className="text-blue-400 font-semibold">blockchain development</span>
+                                
+                                <span className="text-blue-400 font-semibold"> and open-source contributions</span>, I bring a
                                 unique blend of technical skills and problem-solving abilities to every project.
                             </p>
 

@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="mt-6 text-2xl md:text-3xl font-semibold text-neutral-300"
         >
-          Full-Stack Developer | Mobile App Specialist | Cloud Enthusiast
+          Full-Stack Developer | App Developer
         </motion.h2>
 
         <motion.p
