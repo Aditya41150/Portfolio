@@ -104,7 +104,7 @@ export default function CommandPalette({ openContact }: CommandPaletteProps) {
               <Command.Item onSelect={() => window.location.href = "mailto:singhadi437@gmail.com"} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <Mail size={16} className="text-neutral-400" /> Email Me
               </Command.Item>
-              <Command.Item onSelect={() => window.open("https://leetcode.com/u/Aditya_57/", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
+              <Command.Item onSelect={() => window.open("https://leetcode.com/u/Aditya_070/", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <SiLeetcode size={16} className="text-neutral-400" /> LeetCode Profile
               </Command.Item>
               <Command.Item onSelect={handleContactSelect} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">

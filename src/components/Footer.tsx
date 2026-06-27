@@ -15,7 +15,7 @@ export default function Footer() {
     const socialLinks = [
         { icon: Github, href: "https://github.com/Aditya41150", label: "GitHub" },
         { icon: Linkedin, href: "https://www.linkedin.com/in/aditya41150/", label: "LinkedIn" },
-        { icon: SiLeetcode, href: "https://leetcode.com/u/Aditya_57/", label: "LeetCode" },
+        { icon: SiLeetcode, href: "https://leetcode.com/u/Aditya_070/", label: "LeetCode" },
         { icon: BookOpen, href: "https://medium.com/@singhadi437", label: "Medium" },
         { icon: Mail, href: "mailto:singhadi437@gmail.com", label: "Email" },
     ]
