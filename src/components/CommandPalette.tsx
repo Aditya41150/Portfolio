@@ -9,16 +9,68 @@ interface CommandPaletteProps {
 
 const GitHubStreak = () => {
   const username = "Aditya41150";
+  const [imgStatus, setImgStatus] = useState<"loading" | "loaded" | "error">("loading");
+
+  const statsUrl = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=transparent&title_color=ffffff&text_color=a3a3a3&icon_color=3b82f6&hide_border=true&bg_color=00000000`;
+
+  // Some networks/browsers silently hang this request instead of firing
+  // onError (no response at all, rather than a failed one). Without a
+  // timeout, imgStatus would stay "loading" forever and the skeleton would
+  // never resolve. Force a fallback after a few seconds if nothing happened.
+  useEffect(() => {
+    if (imgStatus !== "loading") return;
+    const timeout = setTimeout(() => {
+      setImgStatus((current) => (current === "loading" ? "error" : current));
+    }, 4000);
+    return () => clearTimeout(timeout);
+  }, [imgStatus]);
+
+  // If the stats service fails to respond (rate-limited, cold start, network
+  // blocked, etc.) we don't want to leave a broken-image icon on screen.
+  if (imgStatus === "error") {
+    return (
+      <div className="mx-2 mb-4 p-4 bg-neutral-950 border border-neutral-800 rounded-xl">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">GitHub</span>
+          <span className="flex h-2 w-2 rounded-full bg-neutral-600"></span>
+        </div>
+        <a
+          href={`https://github.com/${username}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-xs text-neutral-400 hover:text-neutral-200 transition-colors"
+        >
+          <Github size={14} />
+          View GitHub stats for @{username}
+        </a>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-2 mb-4 p-4 bg-neutral-950 border border-neutral-800 rounded-xl space-y-3">
       <div className="flex items-center justify-between">
         <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest"> </span>
-        <span className="flex h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+        <span
+          className={`flex h-2 w-2 rounded-full ${
+            imgStatus === "loaded"
+              ? "bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"
+              : "bg-neutral-700 animate-pulse"
+          }`}
+        ></span>
       </div>
+
+      {imgStatus === "loading" && (
+        <div className="w-full h-24 rounded-md bg-neutral-900 animate-pulse" />
+      )}
+
       <img
-        src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=transparent&title_color=ffffff&text_color=a3a3a3&icon_color=3b82f6&hide_border=true&bg_color=00000000`}
+        src={statsUrl}
         alt="GitHub Stats"
-        className="w-full h-auto opacity-90"
+        loading="lazy"
+        onLoad={() => setImgStatus("loaded")}
+        onError={() => setImgStatus("error")}
+        className={`w-full h-auto opacity-90 ${imgStatus === "loaded" ? "block" : "hidden"}`}
       />
     </div>
   );
@@ -67,6 +119,7 @@ export default function CommandPalette({ openContact }: CommandPaletteProps) {
       <Command.Dialog
         open={open}
         onOpenChange={setOpen}
+        title="Command Menu"
         className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4 bg-black/80 backdrop-blur-sm"
       >
         <div className="w-full max-w-[600px] bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl">
@@ -95,6 +148,9 @@ export default function CommandPalette({ openContact }: CommandPaletteProps) {
             </Command.Group>
 
             <Command.Group heading="Connect" className="px-3 pb-2 mt-2 text-[10px] font-bold text-neutral-600 uppercase tracking-widest">
+              <Command.Item onSelect={handleContactSelect} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
+                <Mail size={16} className="text-neutral-400" /> Send Message
+              </Command.Item>
               <Command.Item onSelect={() => window.open("https://github.com/Aditya41150", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <Github size={16} className="text-neutral-400" /> GitHub Profile
               </Command.Item>
@@ -106,9 +162,6 @@ export default function CommandPalette({ openContact }: CommandPaletteProps) {
               </Command.Item>
               <Command.Item onSelect={() => window.open("https://leetcode.com/u/Aditya_070/", "_blank")} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
                 <SiLeetcode size={16} className="text-neutral-400" /> LeetCode Profile
-              </Command.Item>
-              <Command.Item onSelect={handleContactSelect} className="flex items-center gap-3 p-3 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800 aria-selected:bg-neutral-800 cursor-pointer">
-                <Mail size={16} className="text-neutral-400" /> Send Message
               </Command.Item>
             </Command.Group>
           </Command.List>

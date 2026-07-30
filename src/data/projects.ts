@@ -1,39 +1,53 @@
-export const projects = [
+export type Project = {
+  title: string;
+  description: string;
+  details: string[];
+  tech: string[];
+  github?: string | null;
+  live?: string | null;
+};
+
+export const projects: Project[] = [
   {
-    title: "Focus Tracker",
-    description: "A high-performance desktop productivity tool that monitors active window usage and categorizes focus time in real-time.",
-    details: [
-      "Built with a Rust-based window tracking engine and a React frontend",
-      "Features a Rize-inspired dashboard with 24-hour vertical timeline",
-      "Local SQLite persistence for privacy-first data logging",
-      "Real-time active window monitoring and categorization",
-    ],
-    tech: ["Tauri v2", "Rust", "React", "TypeScript", "Tailwind CSS", "SQLite"],
-    github: "https://github.com/Aditya41150/Focus-Tracker",
-    live: null,
-  },
-  {
-    title: "FareFinder – Smart Cab & Bike Fare Comparison App",
+    title: "DevFlow – Developer Productivity Dashboard",
     description:
-      "Mobile app that compares cab and bike fares across services with real-time location input.",
+      "An all-in-one developer productivity dashboard featuring task management, Pomodoro focus sessions, quick notes, live weather, and GitHub profile search.",
     details: [
-      "Built a cross-platform mobile application using Flutter & Dart",
-      "Developed a Node.js + Express backend to handle fare comparison requests",
-      "Integrated Google Places API for pickup and destination autocomplete",
-      "Handled external API calls using async/await with proper error handling",
-      "Returned structured JSON responses to the mobile app",
-      "Organized backend into routes, controllers, and services for maintainability",
+      "Built a responsive dashboard with task management, Pomodoro timer, and Quick Notes",
+      "Integrated OpenWeather and GitHub REST APIs with loading states and graceful error handling",
+      "Persisted tasks, notes, and user preferences using localStorage",
+      "Designed a modular React architecture with reusable components and responsive Tailwind CSS",
+    ],
+    tech: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "OpenWeather API",
+      "GitHub API",
+    ],
+    github: "https://github.com/Aditya41150/DevFlow---Developer-Productivity-Dashboard",
+    live: "https://devflow-developer-productivity-dashboard.vercel.app/",
+  },
+
+  {
+    title: "FareFinder – Smart Cab & Bike Fare Comparison",
+    description:
+      "A cross-platform mobile application that compares cab and bike fares with intelligent location search and backend-powered fare processing.",
+    details: [
+      "Built a Flutter application with an Express.js backend for fare comparison",
+      "Integrated Google Places Autocomplete with debounced search and robust error handling",
+      "Developed REST APIs to process requests and return structured JSON responses",
+      "Organized the backend using MVC architecture for scalability and maintainability",
     ],
     tech: [
       "Flutter",
       "Dart",
       "Node.js",
       "Express.js",
-      "REST APIs",
       "Google Places API",
-      "Async/Await",
-      "JSON",
-      "MVC Architecture",
+      "REST APIs",
+      "MVC",
     ],
     github: "https://github.com/Aditya41150/Fare-Finder-Cabs-and-Bikes",
     live: "https://farefinderapp.netlify.app/",
@@ -42,92 +56,87 @@ export const projects = [
   {
     title: "Proxy Web Server in C",
     description:
-      "High-performance multi-threaded proxy server with caching and concurrency control.",
+      "A high-performance multi-threaded proxy server featuring concurrent request handling and in-memory caching.",
     details: [
-      "Implemented a robust networking layer using BSD sockets",
-      "Handled hostname resolution, socket reuse, and connection timeouts",
+      "Implemented HTTP request forwarding using BSD sockets",
       "Designed a thread-safe in-memory cache protected by mutexes",
-      "Implemented LRU-style cache eviction to optimize memory usage",
-      "Improved throughput and reduced latency under high concurrency",
-      "Ensured clean resource teardown across worker threads",
+      "Implemented LRU cache eviction to optimize memory utilization",
+      "Improved concurrent request handling using POSIX threads",
     ],
     tech: [
       "C",
       "Socket Programming",
       "TCP/IP",
-      "Multithreading",
-      "Mutexes & Locks",
-      "Concurrency",
-      "LRU Cache",
-      "Memory Management",
       "POSIX Threads",
+      "Mutexes",
+      "LRU Cache",
     ],
     github: "https://github.com/Aditya41150/Proxy-web-server-in-c",
     live: null,
   },
 
   {
-    title: "ShopEase – E-commerce Mobile App",
+    title: "Taskify – Advanced Task Management App",
     description:
-      "Cross-platform e-commerce app with authentication, cart, and order management.",
+      "A Flutter task management application built with Clean Architecture, real-time synchronization, and intuitive gesture-based interactions.",
     details: [
-      "Developed a Flutter-based mobile app for product browsing and cart management",
-      "Integrated Firebase Authentication for secure user sign-in and sign-up",
-      "Used Firestore for real-time product and order data synchronization",
-      "Implemented persistent carts and category-based product filtering",
-      "Designed modular and reusable UI components for scalability",
-      "Simulated payment flows for checkout experience",
+      "Architected the application using Clean Architecture for better scalability",
+      "Implemented Riverpod for efficient reactive state management",
+      "Integrated Cloud Firestore for real-time task synchronization",
+      "Built swipe gestures for editing and deleting tasks with smooth user interactions",
+    ],
+    tech: [
+      "Flutter",
+      "Dart",
+      "Riverpod",
+      "Cloud Firestore",
+      "Firebase",
+      "Clean Architecture",
+    ],
+    github: "https://github.com/Aditya41150/Task-Management-App",
+    live: null,
+  },
+
+  {
+    title: "Cosmic – Explore the Solar System",
+    description:
+      "An interactive Flutter application for exploring the solar system through immersive animations, rich planetary information, and a modern mobile interface.",
+    details: [
+      "Built visually engaging planet exploration screens with smooth animations",
+      "Integrated Firebase Authentication for secure user sign-in",
+      "Designed responsive UI components with intuitive navigation",
+      "Organized the application into reusable widgets for maintainability",
     ],
     tech: [
       "Flutter",
       "Dart",
       "Firebase",
       "Firebase Authentication",
-      "Cloud Firestore",
-      "State Management",
-      "REST Integration",
-      "Modular UI Design",
+      "Material Design",
     ],
-    github: "https://github.com/Aditya41150/ShopEase",
+    github: "https://github.com/Aditya41150/Cosmic-App",
     live: null,
   },
+
   {
-    title: "Taskify – Advanced Task Management App",
+    title: "ShopEase – E-commerce Mobile App",
     description:
-      "A productivity-focused mobile app featuring real-time sync, clean architecture, and intuitive gesture-based task control.",
+      "A cross-platform e-commerce application featuring authentication, product browsing, cart management, and real-time data synchronization.",
     details: [
-      "Architected using Clean Architecture principles separating Domain, Data, and Presentation layers",
-      "Implemented Riverpod for robust, reactive state management across the application",
-      "Integrated Firebase Firestore for real-time data synchronization and persistent storage",
-      "Developed advanced 'Swipe-to-Action' gestures: Swipe Right to Edit and Swipe Left to Delete",
-      "Designed a dynamic Bottom Sheet interface for context-aware task creation and editing",
-      "Built a custom priority-based categorization system with real-time UI updates",
+      "Built a Flutter application for browsing products and managing carts",
+      "Integrated Firebase Authentication for secure user access",
+      "Used Cloud Firestore for real-time product and order management",
+      "Designed reusable UI components with category-based product filtering",
     ],
     tech: [
       "Flutter",
       "Dart",
-      "Riverpod",
-      "Firebase Firestore",
+      "Firebase",
       "Cloud Firestore",
-      "Clean Architecture",
-      "Advanced Gestures",
-      "MVC/Feature-first Design",
+      "Firebase Authentication",
+      "REST APIs",
     ],
-    github: "https://github.com/Aditya41150/Task-Management-App",
+    github: "https://github.com/Aditya41150/ShopEase",
     live: null,
   },
-  {
-    title: "Cosmic - Explore the Solar System",
-    description: "A stunning Flutter application that lets you explore planets in our solar system with beautiful animations, immersive UI, and Firebase authentication.",
-    details: [
-      "Implemented chat‑based UI with Flutter and Dart",
-      "Integrated OpenAI GPT for natural language understanding",
-      "Used Firebase for authentication, Firestore for real‑time data sync",
-      "Added voice command support via speech‑to‑text APIs",
-      "Implemented push notifications for reminders and alerts"
-    ],
-    tech: ["Flutter", "Dart", "OpenAI API", "Firebase", "Firestore", "Speech‑to‑Text", "Push Notifications"],
-    github: "https://github.com/Aditya41150/Cosmic-App",
-    live: null
-  }
 ];

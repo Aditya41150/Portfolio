@@ -1,11 +1,11 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { Github, ExternalLink } from "lucide-react"
-import { projects } from "../data/projects"
+import { projects, type Project } from "../data/projects"
 import ProjectModal from "./ProjectModal"
 
 export default function Projects() {
-  const [selected, setSelected] = useState<any>(null)
+  const [selected, setSelected] = useState<Project | null>(null)
 
   return (
     <>

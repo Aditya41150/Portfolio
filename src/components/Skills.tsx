@@ -1,14 +1,11 @@
 import { motion } from "framer-motion"
+import type { ComponentType, SVGProps } from "react"
 import {
   SiJavascript,
   SiTypescript,
   SiReact,
   SiNextdotjs,
-  SiCplusplus,
-  SiPython,
   SiDart,
-  SiC,
-  SiRust,
   SiNodedotjs,
   SiExpress,
   SiFlutter,
@@ -17,15 +14,12 @@ import {
   SiPostgresql,
   SiMongodb,
   SiTailwindcss,
-  SiGit,
-  SiDocker,
-  SiAmazon,
   SiGooglecloud,
 } from "react-icons/si"
 
 type Skill = {
   name: string
-  icon: any
+  icon: ComponentType<SVGProps<SVGSVGElement>>
   level: number
 }
 

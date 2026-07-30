@@ -1,7 +1,8 @@
 import { Github, X, ExternalLink } from "lucide-react"
+import type { Project } from "../data/projects"
 
 type ProjectModalProps = {
-  project: any
+  project: Project | null
   onClose: () => void
 }
 

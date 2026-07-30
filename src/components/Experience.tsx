@@ -1,27 +1,25 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+
+import metacraftersLogo from "../assets/logos/metacrafters.jpg";
 
 const experiences = [
   {
     role: "Summer Trainee",
     company: "Metacrafters",
+    logo: metacraftersLogo,
     duration: "Apr 2024 – Jul 2024",
+    location: "Remote",
+    certificate:
+      "https://www.linkedin.com/in/aditya41150/overlay/Position/2406589181/treasury/?profileId=ACoAAD4nd8gBO7SZkR1T1jw-jk2QTiS1VayNjY8",
+
     points: [
-      "Developed smart contracts using Solidity and Ethereum, improving blockchain app performance by ~30%",
-      "Explored smart contract debugging tools and gas optimization techniques",
-      "Delivered a high-impact project and earned a $175 merit-based scholarship"
-    ]
+      "Optimized Solidity smart contracts for security and gas efficiency, reducing execution costs by 15% and improving deployment reliability",
+      "Engineered blockchain applications using Solidity, Ethereum (EVM), Avalanche Subnets, and Avalanche HyperSDK, including ERC-20 token and contract management",
+      "Presented technical code walkthroughs for mentor-reviewed blockchain projects, incorporating feedback to meet requirements",
+    ],
   },
-  {
-    role: "Open Source Contributor",
-    company: "GirlScript Summer of Code (GSSOC)",
-    duration: "May 2024 – Aug 2024",
-    points: [
-      "Contributed to a Flutter-based application by adding new features and fixing 10+ bugs",
-      "Improved application performance by ~20% through optimizations",
-      "Performed code reviews and debugging to enhance app stability and security"
-    ]
-  }
-]
+];
 
 export default function Experience() {
   return (
@@ -36,13 +34,13 @@ export default function Experience() {
             Experience
           </h2>
 
-          <p className="text-neutral-400 mt-3 max-w-2xl text-lg">
-            Hands-on experience through internships and open-source
-            contributions focused on real-world impact.
+          <p className="mt-3 max-w-2xl text-lg text-neutral-400">
+            Hands-on experience building and shipping blockchain applications in
+            a fast-paced, mentor-reviewed environment.
           </p>
         </motion.div>
 
-        <div className="mt-16 relative border-l border-neutral-800">
+        <div className="relative mt-16 border-l border-neutral-800">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.company}
@@ -52,29 +50,54 @@ export default function Experience() {
               viewport={{ once: true }}
               className="ml-6 mb-16"
             >
-              {/* Timeline dot */}
-              <span className="absolute -left-[7px] mt-1 w-3 h-3 rounded-full bg-neutral-100" />
+              {/* Timeline Dot */}
+              <span className="absolute -left-[7px] mt-5 h-3 w-3 rounded-full bg-white" />
 
-              <h3 className="text-lg font-medium">
-                {exp.role} ·{" "}
-                <span className="text-neutral-400">
-                  {exp.company}
-                </span>
-              </h3>
+              {/* Header */}
+              <div className="flex items-center gap-4">
+                <img
+                  src={exp.logo}
+                  alt={`${exp.company} logo`}
+                  className="h-12 w-12 rounded-xl border border-neutral-700 bg-neutral-900 object-contain p-2"
+                />
 
-              <p className="text-sm text-neutral-500 mt-1">
-                {exp.duration}
+                <div>
+                  <h3 className="text-xl font-semibold">{exp.role}</h3>
+
+                  <p className="text-neutral-400">{exp.company}</p>
+                </div>
+              </div>
+
+              {/* Date */}
+              <p className="mt-3 text-sm text-neutral-500">
+                {exp.duration} · {exp.location}
               </p>
 
-              <ul className="mt-4 space-y-2 text-neutral-300 text-sm">
+              {/* Bullet Points */}
+              <ul className="mt-4 space-y-2 text-sm leading-relaxed text-neutral-300">
                 {exp.points.map((point, i) => (
-                  <li key={i}>• {point}</li>
+                  <li key={i} className="flex gap-2">
+                    <span className="text-neutral-600">•</span>
+                    <span>{point}</span>
+                  </li>
                 ))}
               </ul>
+
+
+              {/* Certificate */}
+              <a
+                href={exp.certificate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-white"
+              >
+                View Certificate
+                <ExternalLink size={14} />
+              </a>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

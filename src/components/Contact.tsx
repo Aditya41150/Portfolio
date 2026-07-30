@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { X, Send, Loader2 } from 'lucide-react';
 
@@ -11,23 +11,28 @@ export default function Contact({ onClose }: ContactProps) {
   const form = useRef<HTMLFormElement>(null);
   const [isSending, setIsSending] = useState(false);
 
-  const sendEmail = (e: React.FormEvent) => {
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSending(true);
 
-    // Using "as any" to prevent TypeScript errors with Vite env variables
-    const serviceId = (import.meta as any).env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = (import.meta as any).env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = (import.meta as any).env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      alert('Email service is not configured yet.');
+      setIsSending(false);
+      return;
+    }
 
     if (form.current) {
       emailjs.sendForm(serviceId, templateId, form.current, publicKey)
         .then(() => {
-          alert("Message sent successfully!");
-          onClose(); // Close popup on success
+          alert('Message sent successfully!');
+          onClose();
         })
-        .catch((err) => {
-          alert("Failed to send: " + err.text);
+        .catch((err: { text?: string }) => {
+          alert('Failed to send: ' + (err.text ?? 'Please try again later.'));
         })
         .finally(() => setIsSending(false));
     }
